@@ -1,0 +1,5 @@
+Pepe:20
+Maria:30
+Juan:5
+Mario:10
+Nueva:50

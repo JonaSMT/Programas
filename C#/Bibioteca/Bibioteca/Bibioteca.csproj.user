@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\zumot\Desktop\Programas\C#\Bibioteca\Bibioteca\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Forms\FrmBuscarComic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrmBuscarLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrmBuscarManga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrmComic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrmLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrmManga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrmVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

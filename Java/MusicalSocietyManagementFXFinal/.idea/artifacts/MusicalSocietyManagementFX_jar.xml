@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="MusicalSocietyManagementFX:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MusicalSocietyManagementFX_jar</output-path>
+    <root id="root">
+      <element id="archive" name="MusicalSocietyManagementFX.jar">
+        <element id="module-output" name="MusicalSocietyManagementFX" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+      <element id="library" level="application" name="javafx-swt" />
+    </root>
+  </artifact>
+</component>

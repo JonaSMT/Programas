@@ -1,0 +1,13 @@
+C:\Users\zumot\Desktop\Biblioteca\Bibioteca.exe
+C:\Users\zumot\Desktop\Biblioteca\Bibioteca.dll
+C:\Users\zumot\Desktop\Biblioteca\Bibioteca.deps.json
+C:\Users\zumot\Desktop\Biblioteca\Bibioteca.runtimeconfig.json
+C:\Users\zumot\Desktop\Biblioteca\Bibioteca.pdb
+C:\Users\zumot\Desktop\Biblioteca\BouncyCastle.Crypto.dll
+C:\Users\zumot\Desktop\Biblioteca\Google.Protobuf.dll
+C:\Users\zumot\Desktop\Biblioteca\K4os.Compression.LZ4.dll
+C:\Users\zumot\Desktop\Biblioteca\K4os.Compression.LZ4.Streams.dll
+C:\Users\zumot\Desktop\Biblioteca\K4os.Hash.xxHash.dll
+C:\Users\zumot\Desktop\Biblioteca\MySql.Data.dll
+C:\Users\zumot\Desktop\Biblioteca\Ubiety.Dns.Core.dll
+C:\Users\zumot\Desktop\Biblioteca\Zstandard.Net.dll
