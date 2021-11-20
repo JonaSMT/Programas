@@ -1,5 +1,6 @@
 ﻿using Facturacion.BBDD;
 using Facturacion.Presentacion;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,10 +25,12 @@ namespace Facturacion
     public partial class MainWindow : Window
     {
         AnyadirFactura? anyadirFactura = default;
+        ConexionBBDD conexionBBDD = new ConexionBBDD();
         public MainWindow()
         {
             InitializeComponent();
-            ConexionBBDD.CargarLocalidad();
+            conexionBBDD.ConectarBBDD();
+            //conexionBBDD.CargarLocalidad();
         }
 
         private void menuItemAnyadirFactura_Click(object sender, RoutedEventArgs e)
@@ -37,6 +40,11 @@ namespace Facturacion
             anyadirFactura.Width = wrpCuerpoPrincipal.Width;
             anyadirFactura.Height = wrpCuerpoPrincipal.Height;
             wrpCuerpoPrincipal.Children.Add(anyadirFactura);
+        }
+
+        private void gridPrincipal_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TGtKhoBN5gNRK+AUX8inq7wMFQUqPRopcaL7JjR+i02w5BcZyYzCn5qMTG3iAjnLiGa5ugkqI/7bVOwwxkBTDQ==",
+  "dgSpecHash": "AnbsLCzkVL2yaf+LesdxJX+0V7GVzrClqSNiD1iWCu6Eb5MbemZXyCXeskvohdoVVpemee7GsXH5RGuqEoq50A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zumot\\Desktop\\Programas\\Facturacion\\Facturacion\\Facturacion.csproj",
+  "projectFilePath": "C:\\Users\\zumot\\Desktop\\Facturacion\\Facturacion\\Facturacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zumot\\.nuget\\packages\\npgsql\\6.0.0\\npgsql.6.0.0.nupkg.sha512",
     "C:\\Users\\zumot\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"

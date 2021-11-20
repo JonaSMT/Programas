@@ -90,11 +90,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zumot\\Desktop\\Programas\\Facturacion\\Facturacion\\Facturacion.csproj",
+      "projectUniqueName": "C:\\Users\\zumot\\Desktop\\Facturacion\\Facturacion\\Facturacion.csproj",
       "projectName": "Facturacion",
-      "projectPath": "C:\\Users\\zumot\\Desktop\\Programas\\Facturacion\\Facturacion\\Facturacion.csproj",
+      "projectPath": "C:\\Users\\zumot\\Desktop\\Facturacion\\Facturacion\\Facturacion.csproj",
       "packagesPath": "C:\\Users\\zumot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zumot\\Desktop\\Programas\\Facturacion\\Facturacion\\obj\\",
+      "outputPath": "C:\\Users\\zumot\\Desktop\\Facturacion\\Facturacion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -113,7 +113,7 @@
       },
       "frameworks": {
         "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+          "targetAlias": "net6.0-windows7.0",
           "projectReferences": {}
         }
       },
@@ -125,7 +125,7 @@
     },
     "frameworks": {
       "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+        "targetAlias": "net6.0-windows7.0",
         "dependencies": {
           "Npgsql": {
             "target": "Package",

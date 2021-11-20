@@ -22,7 +22,6 @@ C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows\ref\Fact
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.pdb
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.genruntimeconfig.cache
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows\Npgsql.dll
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.csproj.CopyComplete
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\bin\Debug\net6.0-windows\Facturacion.exe
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\bin\Debug\net6.0-windows\Facturacion.deps.json
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\bin\Debug\net6.0-windows\Facturacion.runtimeconfig.json
@@ -43,8 +42,8 @@ C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-window
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.AssemblyInfoInputs.cache
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.AssemblyInfo.cs
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.csproj.CoreCompileInputs.cache
-C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.csproj.CopyComplete
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.dll
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\ref\Facturacion.dll
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.pdb
 C:\Users\zumot\Desktop\Programas\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.genruntimeconfig.cache
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows\Facturacion.csproj.CopyComplete

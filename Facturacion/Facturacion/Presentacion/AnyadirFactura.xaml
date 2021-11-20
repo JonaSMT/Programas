@@ -34,11 +34,12 @@
                 <TextBox Text="" Margin="16,0,0,0" Width="85" Height="21"/>
                 <Label Content="Calle: " Margin="10,0,0,0"/>
                 <TextBox Text="" Margin="9,0,0,0" Width="161" Height="21"/>
-                <Label Content="Población: " Margin="10,0,0,0"/>
-                <ComboBox Width="120" Height="21" Name="listaPoblacion">
-                </ComboBox>
-
-
+                <Label Content="Provincia: " Margin="10,0,0,0"/>
+                <ComboBox Width="287" Height="21" x:Name="comboProvincia" IsEditable="True" LostFocus="comboProvincia_LostFocus"/>
+                <Label Content="Municipio: " Margin="10,0,0,0" />
+                <ComboBox x:Name="comboMunicipio" Width="124" Height="21" IsEditable="True" LostFocus="comboMunicipio_LostFocus"/>
+                <Label Content="CP: " Margin="10,0,0,0"/>
+                <TextBox x:Name="txtCP" TextWrapping="Wrap" Text="" Width="70" Margin="5,0,0,0" LostFocus="txtCP_LostFocus"/>
             </WrapPanel>
         </Grid>
     </Grid>
