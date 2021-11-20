@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\zumot\Desktop\Facturacion\Facturacion\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Formulario\FrmAnyadir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formulario\FrmConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formulario\FrmConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formulario\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

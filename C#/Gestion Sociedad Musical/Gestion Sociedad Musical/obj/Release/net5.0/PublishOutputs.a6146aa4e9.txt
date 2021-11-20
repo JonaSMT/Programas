@@ -1,0 +1,5 @@
+C:\Users\zumot\Desktop\Programas\C#\Gestion Sociedad Musical\Gestion Sociedad Musical\bin\Release\Gestion Sociedad Musical.exe
+C:\Users\zumot\Desktop\Programas\C#\Gestion Sociedad Musical\Gestion Sociedad Musical\bin\Release\Gestion Sociedad Musical.dll
+C:\Users\zumot\Desktop\Programas\C#\Gestion Sociedad Musical\Gestion Sociedad Musical\bin\Release\Gestion Sociedad Musical.deps.json
+C:\Users\zumot\Desktop\Programas\C#\Gestion Sociedad Musical\Gestion Sociedad Musical\bin\Release\Gestion Sociedad Musical.runtimeconfig.json
+C:\Users\zumot\Desktop\Programas\C#\Gestion Sociedad Musical\Gestion Sociedad Musical\bin\Release\Gestion Sociedad Musical.pdb

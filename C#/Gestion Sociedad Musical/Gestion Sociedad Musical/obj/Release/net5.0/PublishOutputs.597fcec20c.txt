@@ -1,0 +1,5 @@
+C:\Users\zumot\Desktop\Nueva carpeta\Gestion Sociedad Musical.exe
+C:\Users\zumot\Desktop\Nueva carpeta\Gestion Sociedad Musical.dll
+C:\Users\zumot\Desktop\Nueva carpeta\Gestion Sociedad Musical.deps.json
+C:\Users\zumot\Desktop\Nueva carpeta\Gestion Sociedad Musical.runtimeconfig.json
+C:\Users\zumot\Desktop\Nueva carpeta\Gestion Sociedad Musical.pdb
