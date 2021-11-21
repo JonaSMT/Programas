@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5ZuDGmkhziMyQaIC5CvrTgZN1N3ePUKr0kp6/qQrY8552hqZf+GK4c1bIvFQmnAjXfNxW2/RVDAP/Yz81UgHcg==",
+  "dgSpecHash": "pqvAkJbiJ371tAERCglD+T83ti0meuAPyreXBdqYrK7e/7OjeUdBjhS5A5EgCfXwL6t4lXM1X/WFQXG+1SJgHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zumot\\Desktop\\Facturacion\\Facturacion\\Facturacion.csproj",
+  "projectFilePath": "C:\\Users\\zumot\\Desktop\\Programas\\C#\\Facturacion\\Facturacion\\Facturacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zumot\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\zumot\\.nuget\\packages\\common.logging\\3.4.1\\common.logging.3.4.1.nupkg.sha512",
@@ -101,7 +101,8 @@
     "C:\\Users\\zumot\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\zumot\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\zumot\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
-    "C:\\Users\\zumot\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\zumot\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\zumot\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }

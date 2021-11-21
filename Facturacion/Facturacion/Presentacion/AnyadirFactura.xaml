@@ -1,15 +1,16 @@
-﻿<UserControl x:Class="Facturacion.Presentacion.AnyadirFactura"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Facturacion.Presentacion"
+             x:Class="Facturacion.Presentacion.AnyadirFactura"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="233*"/>
-            <ColumnDefinition Width="567*"/>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="113*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -20,26 +21,61 @@
         </Grid>
         <Grid Margin="0,0,2,0">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="320*"/>
+                <RowDefinition Height="323*"/>
+                <RowDefinition Height="77*"/>
             </Grid.RowDefinitions>
-            <WrapPanel HorizontalAlignment="Center" Width="371">
-                <Label Content="Datos Empresa" HorizontalContentAlignment="Center" Width="371" FontWeight="Bold" Margin="0,0,0,15"/>
-                <Label Content="Fecha: " Margin="10,0,0,0"/>
-                <TextBox TextWrapping="Wrap" Text="" Width="85" Height="21"/>
-                <Label Content="Dueño: " Margin="10,0,0,0"/>
-                <TextBox TextWrapping="Wrap" Text="" Width="161" Height="21"/>
-                <Label Content="NIF:" Margin="10,0,0,0"/>
-                <TextBox Text="" Margin="16,0,0,0" Width="85" Height="21"/>
-                <Label Content="Calle: " Margin="10,0,0,0"/>
-                <TextBox Text="" Margin="9,0,0,0" Width="161" Height="21"/>
-                <Label Content="Provincia: " Margin="10,0,0,0"/>
-                <ComboBox Width="287" Height="21" x:Name="comboProvincia" IsEditable="True" LostFocus="comboProvincia_LostFocus"/>
-                <Label Content="Municipio: " Margin="10,0,0,0" />
-                <ComboBox x:Name="comboMunicipio" Width="124" Height="21" IsEditable="True" LostFocus="comboMunicipio_LostFocus"/>
-                <Label Content="CP: " Margin="10,0,0,0"/>
-                <TextBox x:Name="txtCP" TextWrapping="Wrap" Text="" Width="70" Margin="5,0,0,0" LostFocus="txtCP_LostFocus"/>
+            <WrapPanel HorizontalAlignment="Center" Width="371" Margin="0,2,0,0">
+                <Label Content="Datos Empresa" HorizontalContentAlignment="Center" Width="371" FontWeight="Bold" Margin="0,5,0,15"/>
+                <Viewbox Height="26" Stretch="Fill" Width="361" Margin="8,0,0,0">
+                    <Grid Height="25.96" Width="369.186666666667">
+                        <Label Content="Fecha: " Margin="0,0,322,0"/>
+                        <DatePicker Text="" Margin="47,0,172,0" Name="dataPickerFecha"/>
+                        <Label Content="Dueño: " Margin="197,0,121,0"/>
+                        <TextBox x:Name="txtPropietario" TextWrapping="Wrap" Text="" Margin="248,2,0,2"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Height="26" Stretch="Fill" Width="361" Margin="8,0,0,0">
+                    <Grid Height="25.96" Width="355">
+                        <Label Content="NIF:" Margin="0,0,324,0"/>
+                        <TextBox x:Name="txtNif" Text="" Margin="48,2,221,2"/>
+                        <Label Content="Calle: " Margin="145,0,168,0"/>
+                        <TextBox x:Name="txtCalle" Text="" Margin="197,2,0,2"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Height="26" Stretch="Fill" Width="361" Margin="8,0,0,0">
+                    <Grid Height="25.96" Width="355">
+                        <Label Content="Provincia: " Margin="0,0,291,0"/>
+                        <ComboBox x:Name="comboProvincia" IsEditable="True" LostFocus="comboProvincia_LostFocus" Margin="65,2,0,2"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Height="29" Stretch="Fill" Width="361" Margin="8,0,0,0">
+                    <Grid Height="28.96" Width="356">
+                        <Label Content="Municipio: " Margin="0,3,287,0" />
+                        <ComboBox x:Name="comboMunicipio" IsEditable="True" LostFocus="comboMunicipio_LostFocus" Margin="70,5,160,2"/>
+                        <Label Content="CP: " Margin="207,0,119,0"/>
+                        <TextBox x:Name="txtCP" TextWrapping="Wrap" Text="" Margin="243,5,0,2" LostFocus="txtCP_LostFocus"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Height="31" Stretch="Fill" Width="361" Margin="8,0,0,0">
+                    <Grid Height="30.96" Width="351">
+                        <Label Content="Teléfono: " Margin="0,5,289,0"/>
+                        <TextBox x:Name="txtTlf" TextWrapping="Wrap" Text="" Margin="63,7,161,2"/>
+                        <Label Content=""  Margin="191,0,0,0"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Height="26" Stretch="Fill" Width="361" Margin="8,0,0,0">
+                    <Grid Height="25.96" Width="354">
+                        <Label Content="Correo Electrónico: " Margin="0,0,239,0"/>
+                        <TextBox x:Name="txtCorreo" TextWrapping="Wrap" Text="" Margin="116,2,0,2"/>
+                    </Grid>
+                </Viewbox>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1">
+                <Label Content="Datos Cliente" Width="374" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="0,5,0,15"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="40">
+                <Button Content="Aceptar" Name="btnGenerarPDF" Click="btnGenerarPDF_Click"/>
             </WrapPanel>
         </Grid>
     </Grid>

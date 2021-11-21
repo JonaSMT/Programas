@@ -5,6 +5,11 @@
       "ProjectGuid": "106a0d44-130e-4cee-8225-e2fa1fadcd37",
       "DisplayName": "Facturacion",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

@@ -2,7 +2,6 @@
 using Facturacion.Entidades;
 using Npgsql;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -17,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NpgsqlTypes;
 
 namespace Facturacion.Presentacion
 {
@@ -30,6 +30,8 @@ namespace Facturacion.Presentacion
         BackgroundWorker worker2 = null;
         NpgsqlDataReader reader = null;
         Localidad localidad = null;
+        Propietario propietario = new Propietario();
+
         public AnyadirFactura()
         {
             InitializeComponent();
@@ -43,6 +45,19 @@ namespace Facturacion.Presentacion
             worker2.DoWork += worker_DoWork2;
             worker.RunWorkerAsync();
             
+        }
+        public void MapearPresentacionNegocioPropietario()
+        {
+            Int32.TryParse(txtCP.Text, out int cpPropietario);
+            Int32.TryParse(txtTlf.Text, out int tlf);
+            propietario.Nombre = txtPropietario.Text;
+            propietario.Nif = txtNif.Text.ToUpper();
+            propietario.Calle = txtCalle.Text;
+            propietario.Poblacion = comboMunicipio.Text;
+            propietario.Cp = cpPropietario;
+            propietario.Provincia = comboProvincia.Text;
+            propietario.Correo = txtCorreo.Text;
+            propietario.Telefono = tlf;
         }
         void worker_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -103,8 +118,20 @@ namespace Facturacion.Presentacion
                 localidad.Poblacion = comboMunicipio.Text;
                 localidad.Provincia = comboProvincia.Text;
             }
-            conexionBBDD.ModificarRegistro(localidad);
+            string[] arrayParametros = { "poblacion", "provincia", "codpostal" };
+            NpgsqlDbType[] arrayTipos = { NpgsqlDbType.Varchar, NpgsqlDbType.Varchar, NpgsqlDbType.Numeric };
+            string[] arrayPropiedades = { "Poblacion", "Provincia", "CodigoPostal" };
+            conexionBBDD.ModificarRegistro(localidad, arrayParametros.ToList(), arrayTipos.ToList(), arrayPropiedades.ToList(), "localidad set codpostal = @codpostal", "provincia = @provincia and poblacion = @poblacion"); 
             
+        }
+
+        private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
+        {
+            MapearPresentacionNegocioPropietario();
+            string[] arrayParametros = { "nombre", "nif", "calle" , "provincia", "poblacion", "cp", "telefono", "correo"};
+            NpgsqlDbType[] arrayTipos = { NpgsqlDbType.Varchar, NpgsqlDbType.Varchar, NpgsqlDbType.Varchar, NpgsqlDbType.Varchar, NpgsqlDbType.Varchar, NpgsqlDbType.Numeric, NpgsqlDbType.Numeric, NpgsqlDbType.Varchar };
+            string[] arrayPropiedades = { "Nombre", "Nif", "Calle", "Provincia", "Poblacion", "Cp", "Telefono", "Correo" };
+            conexionBBDD.AnyadirBBDD(propietario, arrayParametros.ToList(), arrayTipos.ToList(), arrayPropiedades.ToList(), "propietario", "@nombre, @nif, @calle, @provincia, @poblacion, @cp, @telefono, @correo");
         }
     }
 }

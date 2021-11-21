@@ -29,5 +29,10 @@ namespace Facturacion.Entidades
             Poblacion = poblacion;
             Provincia = provincia;
         }
+
+        public override string? ToString()
+        {
+            return Poblacion + ";" + Provincia +";"+CodigoPostal;
+        }
     }
 }

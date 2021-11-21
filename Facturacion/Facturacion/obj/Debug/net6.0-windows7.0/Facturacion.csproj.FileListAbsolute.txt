@@ -1,3 +1,8 @@
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\MainWindow.g.cs
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Presentacion\AnyadirFactura.g.cs
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\App.g.cs
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion_MarkupCompile.cache
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion_MarkupCompile.lref
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\Facturacion.exe
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\Facturacion.deps.json
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\Facturacion.runtimeconfig.json
@@ -5,12 +10,6 @@ C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\Factu
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\ref\Facturacion.dll
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\Facturacion.pdb
 C:\Users\zumot\Desktop\Facturacion\Facturacion\bin\Debug\net6.0-windows7.0\Npgsql.dll
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion.csproj.AssemblyReference.cache
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\MainWindow.g.cs
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Presentacion\AnyadirFactura.g.cs
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\App.g.cs
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion_MarkupCompile.cache
-C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion_MarkupCompile.lref
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\MainWindow.baml
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Presentacion\AnyadirFactura.baml
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion.g.resources
@@ -23,3 +22,4 @@ C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Factu
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\ref\Facturacion.dll
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion.pdb
 C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion.genruntimeconfig.cache
+C:\Users\zumot\Desktop\Facturacion\Facturacion\obj\Debug\net6.0-windows7.0\Facturacion.csproj.AssemblyReference.cache
