@@ -37,14 +37,26 @@ namespace Facturacion
         {
             if (anyadirFactura == null)
                 anyadirFactura = new AnyadirFactura();
-            anyadirFactura.Width = wrpCuerpoPrincipal.Width;
-            anyadirFactura.Height = wrpCuerpoPrincipal.Height;
             wrpCuerpoPrincipal.Children.Add(anyadirFactura);
         }
 
         private void gridPrincipal_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void gridPrincipal_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+            {
+                Application.Current.MainWindow.Width = 1280;
+                Application.Current.MainWindow.Height = 720;
+            }
+            if (WindowState == WindowState.Maximized)
+            {
+                Application.Current.MainWindow.Width = 1920;
+                Application.Current.MainWindow.Height = 1080;
+            }
         }
     }
 }

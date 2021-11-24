@@ -27,19 +27,23 @@ namespace Facturacion.BBDD
             conexion = new NpgsqlConnection(cadenaConexion);
             conexion.Open();
         }
-        public NpgsqlDataReader DevolverSelect(string tabla, string from, string orden)
+        public NpgsqlDataReader DevolverSelect(string tabla, string from, string orden, bool ordenacion)
         {
-            string sql = "select " + tabla + " from " + from + " order by " + orden + " ASC";
+            string sql = "select " + tabla + " from " + from;
+            if (ordenacion)
+            {
+                sql += " order by " + orden;
+            }
             cmd = new NpgsqlCommand(sql, conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             return reader;
         }
         public NpgsqlDataReader DevolverSelectWhere(string tabla, string from, string where, string orden, bool ordenacion)
         {
-            string sql = "select " + tabla + " from " + from + where;
+            string sql = "select " + tabla + " from " + from + " where " + where;
             if (ordenacion)
             {
-                sql += " order by " + orden + " ASC";
+                sql += " order by " + orden;
             }
             cmd = new NpgsqlCommand(sql, conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();

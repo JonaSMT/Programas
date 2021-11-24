@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Facturacion"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid x:Name="gridPrincipal">
+    <Grid x:Name="gridPrincipal" SizeChanged="gridPrincipal_SizeChanged">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition x:Name="Cuerpo"/>
