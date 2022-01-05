@@ -8,7 +8,7 @@ namespace Facturacion.Entidades
 {
     internal class Localidad
     {
-        public int CodigoPostal { get; set; }
+        public int CodPostal { get; set; }
         public string Poblacion { get; set; }
         public string Provincia { get; set; }
 
@@ -18,21 +18,21 @@ namespace Facturacion.Entidades
 
         public Localidad(string poblacion, string provincia)
         {
-            CodigoPostal = 0;
+            CodPostal = 0;
             Poblacion = poblacion;
             Provincia = provincia;
         }
 
         public Localidad(int codigopostal, string poblacion, string provincia)
         {
-            CodigoPostal = codigopostal;
+            CodPostal = codigopostal;
             Poblacion = poblacion;
             Provincia = provincia;
         }
 
         public override string? ToString()
         {
-            return Poblacion + ";" + Provincia +";"+CodigoPostal;
+            return Poblacion + ";" + Provincia +";"+CodPostal;
         }
     }
 }

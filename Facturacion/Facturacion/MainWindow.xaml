@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Facturacion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
-    <Grid x:Name="gridPrincipal" SizeChanged="gridPrincipal_SizeChanged">
+        Title="MainWindow" Height="720" Width="1280"
+        SizeChanged="Window_SizeChanged">
+    <Grid x:Name="gridPrincipal">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="31"/>
             <RowDefinition x:Name="Cuerpo"/>
         </Grid.RowDefinitions>
         <Menu>
-            <MenuItem Header="Facturas">
+            <MenuItem Header="Facturas" Height="32">
                 <MenuItem Header="Nueva Factura" Name="menuItemAnyadirFactura" Click="menuItemAnyadirFactura_Click"></MenuItem>
+                <MenuItem Header="Consultar Facturas" Name="menuItemConsultarFacturas" Click="menuItemConsultarFacturas_Click"></MenuItem>
             </MenuItem>
         </Menu>
         <WrapPanel Name="wrpCuerpoPrincipal" Grid.Row="1"/>

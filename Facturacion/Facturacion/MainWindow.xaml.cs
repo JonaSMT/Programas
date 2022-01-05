@@ -25,6 +25,7 @@ namespace Facturacion
     public partial class MainWindow : Window
     {
         AnyadirFactura? anyadirFactura = default;
+        ConsultarFactura? consultarFactura = default;
         ConexionBBDD conexionBBDD = new ConexionBBDD();
         public MainWindow()
         {
@@ -39,23 +40,30 @@ namespace Facturacion
                 anyadirFactura = new AnyadirFactura();
             wrpCuerpoPrincipal.Children.Add(anyadirFactura);
         }
-
+        private void menuItemConsultarFacturas_Click(object sender, RoutedEventArgs e)
+        {
+            wrpCuerpoPrincipal.Children.Remove(anyadirFactura);
+            if (consultarFactura == null)
+                consultarFactura = new ConsultarFactura();
+            wrpCuerpoPrincipal.Children.Add(consultarFactura);
+        }
         private void gridPrincipal_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void gridPrincipal_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (WindowState == WindowState.Normal)
-            {
-                Application.Current.MainWindow.Width = 1280;
-                Application.Current.MainWindow.Height = 720;
-            }
-            if (WindowState == WindowState.Maximized)
+            if (WindowState == WindowState.Maximized && anyadirFactura != null)
             {
                 Application.Current.MainWindow.Width = 1920;
                 Application.Current.MainWindow.Height = 1080;
+                anyadirFactura.Width = Application.Current.MainWindow.Width - 20;
+                anyadirFactura.Height = Application.Current.MainWindow.Height - 20;
+            }
+            if (anyadirFactura != null)
+            {
+                anyadirFactura.Width = Application.Current.MainWindow.Width;
+                anyadirFactura.Height = Application.Current.MainWindow.Height;
             }
         }
     }

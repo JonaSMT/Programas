@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using NpgsqlTypes;
+using System.Reflection;
 
 namespace Facturacion.BBDD
 {
@@ -20,12 +21,17 @@ namespace Facturacion.BBDD
         public ConexionBBDD()
         {
         }
-
+        List<string> listaParametros = new List<string>();
         public void ConectarBBDD()
         {
             string cadenaConexion = "Host=localhost;Username=postgres;Password=root;Database=facturacion";
             conexion = new NpgsqlConnection(cadenaConexion);
             conexion.Open();
+        }
+        public NpgsqlConnection DevolverConectarBBDD()
+        {
+            string cadenaConexion = "Host=localhost;Username=postgres;Password=root;Database=facturacion";
+            return conexion = new NpgsqlConnection(cadenaConexion);
         }
         public NpgsqlDataReader DevolverSelect(string tabla, string from, string orden, bool ordenacion)
         {
@@ -38,6 +44,15 @@ namespace Facturacion.BBDD
             NpgsqlDataReader reader = cmd.ExecuteReader();
             return reader;
         }
+        public NpgsqlCommand DevolverComandoSelect(string tabla, string from, string orden, bool ordenacion)
+        {
+            string sql = "select " + tabla + " from " + from;
+            if (ordenacion)
+            {
+                sql += " order by " + orden;
+            }
+            return new NpgsqlCommand(sql, conexion);
+        }
         public NpgsqlDataReader DevolverSelectWhere(string tabla, string from, string where, string orden, bool ordenacion)
         {
             string sql = "select " + tabla + " from " + from + " where " + where;
@@ -49,91 +64,128 @@ namespace Facturacion.BBDD
             NpgsqlDataReader reader = cmd.ExecuteReader();
             return reader;
         }
-        /*public void ModificarRegistro(Localidad localidad)
+        public NpgsqlCommand DevolverComandoSelectWhere(string tabla, string from, string where, string orden, bool ordenacion)
         {
-            string sql = "update localidad set codpostal = @codpostal where provincia = @provincia and poblacion = @poblacion";
+            string sql = "select " + tabla + " from " + from + " where " + where;
+            if (ordenacion)
+            {
+                sql += " order by " + orden;
+            }
+            return new NpgsqlCommand(sql, conexion);
+        }
+        public NpgsqlCommand DevolverComandoSelectWhere<T>(T objeto, string tabla, string from, string where, string orden, bool ordenacion)
+        {
+            listaParametros.Clear();
+            List<PropertyInfo> prop = objeto.GetType().GetProperties().ToList();
+            prop.ForEach(p => listaParametros.Add(p.Name));
+            string sql = "select " + tabla + " from " + from + " where " + where;
+            if (ordenacion)
+            {
+                sql += " order by " + orden;
+            }
             cmd = new NpgsqlCommand(sql, conexion);
-            cmd.Parameters.AddWithValue("poblacion", NpgsqlDbType.Varchar, localidad.Poblacion);
-            cmd.Parameters.AddWithValue("provincia", NpgsqlDbType.Varchar, localidad.Provincia);
-            cmd.Parameters.AddWithValue("codpostal", NpgsqlDbType.Numeric, localidad.CodigoPostal);
-            cmd.Prepare();
-            cmd.ExecuteNonQuery();
-        }*/
-
-        /// <summary>
-        /// Modifica un registro en la BBDD con PreparedStatement
-        /// </summary>
-        /// <typeparam name="T"></typeparam> Objeto de clase
-        /// <param name="objeto"></param> Objeto de clase
-        /// <param name="listaParametros"></param> Lista de parámetros para la sentencia SQL que necesita el PreparedStatemennt
-        /// <param name="listaTipos"></param> Lista de tipos para parsear en la BBDD
-        /// <param name="propiedades"></param> Lista de los nombres de las propiedades del objeto
-        public void ModificarRegistro <T>(T objeto, List<string> listaParametros, List<NpgsqlDbType> listaTipos, List<string> propiedades, string update, string where)
+            for (int i = 0; i < listaParametros.Count; i++)
+            {
+                cmd.Parameters.AddWithValue(listaParametros[i], objeto.GetType().GetProperty(listaParametros[i].ToString()).GetValue(objeto).ToString());
+            }
+            return cmd;
+        }
+        public NpgsqlDataReader DevolverSelectWhere<T>(T objeto, string tabla, string from, string where, string orden, bool ordenacion)
         {
+            listaParametros.Clear();
+            List<PropertyInfo> prop = objeto.GetType().GetProperties().ToList();
+            prop.ForEach(p => listaParametros.Add(p.Name));
+            string sql = "select " + tabla + " from " + from + " where " + where;
+            if (ordenacion)
+            {
+                sql += " order by " + orden;
+            }
+            cmd = new NpgsqlCommand(sql, conexion);
+            for (int i = 0; i < listaParametros.Count; i++)
+            {
+                cmd.Parameters.AddWithValue(listaParametros[i], objeto.GetType().GetProperty(listaParametros[i].ToString()).GetValue(objeto).ToString());
+            }
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+        public void ModificarRegistro<T>(T objeto, string update, string where)
+        {
+            listaParametros.Clear();
+            List<PropertyInfo> prop = objeto.GetType().GetProperties().ToList();
+            prop.ForEach(p => listaParametros.Add(p.Name));
             string sql = "update " + update + " where " + where;
             cmd = new NpgsqlCommand(sql, conexion);
             for (int i = 0; i < listaParametros.Count; i++)
             {
-                cmd.Parameters.AddWithValue(listaParametros[i], listaTipos[i], objeto.GetType().GetProperty(propiedades[i]).GetValue(objeto)); 
+                cmd.Parameters.AddWithValue(listaParametros[i], objeto.GetType().GetProperty(listaParametros[i].ToString()).GetValue(objeto).ToString());
             }
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
-        /*public void AnyadirBBDD(List<Localidad> listaLocalidades)
+        public void ModificarRegistro<T>(T objeto, List<NpgsqlDbType> listaTipos, string update, string where)
         {
-            foreach (Localidad localidad in listaLocalidades)
+            listaParametros.Clear();
+            List<PropertyInfo> prop = objeto.GetType().GetProperties().ToList();
+            prop.ForEach(p => listaParametros.Add(p.Name));
+            string sql = "update " + update + " where " + where;
+            cmd = new NpgsqlCommand(sql, conexion);
+            for (int i = 0; i < listaParametros.Count; i++)
             {
-                string sql = "INSERT INTO localidad(poblacion, provincia, codpostal) VALUES (@poblacion, @provincia, @codpostal)";
-                cmd = new NpgsqlCommand(sql, conexion);
-                cmd.Parameters.AddWithValue("poblacion", NpgsqlDbType.Varchar, localidad.Poblacion);
-                cmd.Parameters.AddWithValue("provincia", NpgsqlDbType.Varchar, localidad.Provincia);
-                cmd.Parameters.AddWithValue("codpostal", NpgsqlDbType.Numeric,localidad.CodigoPostal);
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue(listaParametros[i], listaTipos[i], objeto.GetType().GetProperty(listaParametros[i]).GetValue(objeto));
             }
-        }*/
-        /// <summary>
-        /// Añade registros en la BBDD con PreparedStatement
-        /// </summary>
-        /// <typeparam name="T"></typeparam> Objeto de clase
-        /// <param name="listaObjetos"></param> Lista de objetos de la clase
-        /// <param name="listaParametros"></param> Lista de parámetros para la sentencia SQL que necesita el PreparedStatemennt
-        /// <param name="listaTipos"></param> Lista de tipos para parsear en la BBDD
-        /// <param name="propiedades"></param> Lista de los nombres de las propiedades del objeto
-        public void AnyadirBBDD<T>(List<T> listaObjetos, List<string> listaParametros, List<NpgsqlDbType> listaTipos, List<string> propiedades, string insert, string values)
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+        }
+        public void AnyadirBBDD<T>(List<T> listaObjetos, string insert, string values)
         {
             foreach (T objeto in listaObjetos)
             {
+                listaParametros.Clear();
+                List<PropertyInfo> prop = objeto.GetType().GetProperties().ToList();
+                prop.ForEach(p => listaParametros.Add(p.Name));
                 string sql = "INSERT INTO " + insert + " VALUES (" + values + ")";
                 cmd = new NpgsqlCommand(sql, conexion);
                 for (int i = 0; i < listaParametros.Count; i++)
                 {
-                    cmd.Parameters.AddWithValue(listaParametros[i], listaTipos[i], objeto.GetType().GetProperty(propiedades[i]).GetValue(objeto));
+                    cmd.Parameters.AddWithValue(listaParametros[i], objeto.GetType().GetProperty(listaParametros[i]).GetValue(objeto));
                 }
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
             }
         }
-
-        /// <summary>
-        /// Añade registros en la BBDD con PreparedStatement
-        /// </summary>
-        /// <typeparam name="T"></typeparam> Objeto de clase
-        /// <param name="objeto"></param> Objeto de la clase
-        /// <param name="listaParametros"></param> Lista de parámetros para la sentencia SQL que necesita el PreparedStatemennt
-        /// <param name="listaTipos"></param> Lista de tipos para parsear en la BBDD
-        /// <param name="propiedades"></param> Lista de los nombres de las propiedades del objeto
-        public void AnyadirBBDD<T>(T objeto, List<string> listaParametros, List<NpgsqlDbType> listaTipos, List<string> propiedades, string insert, string values)
+        public bool AnyadirBBDD<T>(T objeto, string insert, string values)
         {
-            string sql = "INSERT INTO " + insert + " VALUES (" + values + ")";
-            cmd = new NpgsqlCommand(sql, conexion);
-            for (int i = 0; i < listaParametros.Count; i++)
+            try
             {
-                cmd.Parameters.AddWithValue(listaParametros[i], listaTipos[i], objeto.GetType().GetProperty(propiedades[i]).GetValue(objeto));
+                listaParametros.Clear();
+                List<PropertyInfo> prop = objeto.GetType().GetProperties().ToList();
+                prop.ForEach(p => listaParametros.Add(p.Name));
+                string sql = "INSERT INTO " + insert + " VALUES (" + values + ")";
+                cmd = new NpgsqlCommand(sql, conexion);
+                for (int i = 0; i < listaParametros.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue(listaParametros[i], objeto.GetType().GetProperty(listaParametros[i]).GetValue(objeto));
+                }
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+                return true;
             }
-            cmd.Prepare();
-            cmd.ExecuteNonQuery();
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
+
+        /*public BindingSource DevolverDataTable(MySqlCommand cmd)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = dataTable;
+            da.Fill(dataTable);
+            return bindingSource;
+        }*/
         public void CargarLocalidad()
         {
             List<string> listaLocalidadesString = File.ReadAllLines(@"C:\Users\zumot\Desktop\Facturacion\Facturacion\Recursos\Municipios.csv", Encoding.Latin1).ToList();
@@ -142,10 +194,7 @@ namespace Facturacion.BBDD
             {
                 listaLocalidades.Add(new Localidad(localidad.Split(";")[1], localidad.Split(";")[8]));
             });
-            string[] arrayParametros = { "poblacion", "provincia", "codpostal" };
-            NpgsqlDbType[] arrayTipos = { NpgsqlDbType.Varchar, NpgsqlDbType.Varchar, NpgsqlDbType.Numeric };
-            string[] arrayPropiedades = { "Poblacion", "Provincia", "CodigoPostal" };
-            AnyadirBBDD(listaLocalidades, arrayParametros.ToList(), arrayTipos.ToList(), arrayPropiedades.ToList(), "localidad(poblacion, provincia, codpostal)", "@poblacion, @provincia, @codpostal");
+            AnyadirBBDD(listaLocalidades, "localidad(poblacion, provincia, codpostal)", "@poblacion, @provincia, @codpostal");
  
         }
         public void DesconectarBBDD()

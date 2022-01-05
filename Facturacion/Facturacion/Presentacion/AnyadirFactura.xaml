@@ -6,19 +6,23 @@
              xmlns:local="clr-namespace:Facturacion.Presentacion"
              x:Class="Facturacion.Presentacion.AnyadirFactura"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid Background="White" SizeChanged="Grid_SizeChanged" Name="grid" Loaded="grid_Loaded">
+             d:DesignHeight="720" d:DesignWidth="1280"
+             Name="userControl">
+    <Grid Background="White" SizeChanged="Grid_SizeChanged" Name="gridPrincipal" Loaded="grid_Loaded">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" Name="grid0"/>
-            <ColumnDefinition Width="*" Name="grid1"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" Name="stackPanelPrincipal">
             <Label Content="DATOS EMPRESA" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,20"/>
+            <Grid Height="auto" Width="auto" Margin="10,0,0,0">
+                <Label Content="ID" Margin="0,0,0,5" Height="24"/>
+                <TextBox TextWrapping="Wrap" Margin="60,0,0,0" Height="21" Name="txtId" Text="0"/>
+            </Grid>
             <Grid Height="auto" Width="auto" HorizontalAlignment="Stretch" Margin="10,0,0,0">
                 <Label Content="Fecha" VerticalAlignment="Top" Margin="0,0,0,5"/>
                 <DatePicker x:Name="datePickerFechaFactura" VerticalAlignment="Center" Margin="60,0,0,0" Height="26"/>
@@ -31,7 +35,7 @@
                 <Label Content="NIF" VerticalAlignment="Top" Height="24" Margin="0,0,0,5"/>
                 <TextBox x:Name="txtNif" TextWrapping="Wrap" Margin="60,0,0,0" Height="21"/>
             </Grid>
-            
+
             <Grid Height="auto" Width="auto" Margin="10,0,0,0">
                 <Label Content="Provincia" Height="24" Margin="0,0,0,5"/>
                 <ComboBox x:Name="comboProvincia" Height="21" Margin="60,0,0,0" IsEditable="True" LostFocus="comboProvincia_LostFocus"/>
@@ -63,7 +67,7 @@
             </Grid>
             <Grid Height="auto" Width="auto" Margin="10,0,0,0">
                 <Label Content="DNI" Margin="0,0,0,5" Height="24"/>
-                <TextBox x:Name="txtDni" TextWrapping="Wrap" Margin="60,0,0,0" Height="21" SelectionChanged="txtDni_SelectionChanged"/>
+                <TextBox x:Name="txtDni" TextWrapping="Wrap" Margin="60,0,0,0" Height="21" SelectionChanged="txtDni_SelectionChanged" LostFocus="txtDni_LostFocus"/>
             </Grid>
             <Grid Height="auto" Width="auto" Margin="10,0,0,0">
                 <Label Content="Provincia" Height="24" Margin="0,0,0,5"/>
@@ -81,11 +85,51 @@
                 <Label Content="Calle" VerticalAlignment="Top" Height="24" Margin="0,0,0,5"/>
                 <TextBox x:Name="txtCalleCliente" TextWrapping="Wrap" Margin="60,0,0,0" Height="21"/>
             </Grid>
-            <Button Content="Crear Factura" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,60,0,0" Click="btnGenerarPDF_Click"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-            <TextBox TextWrapping="Wrap" Text="TextBox"/>
-        </StackPanel>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
+                <Button x:Name="btnCrearFactura" Content="Crear Factura" Click="btnGenerarPDF_Click" Margin="0,0,20,0" IsEnabled="True"/>
+                <Button Content="Añadir Fila" Name="btnAnyadirFila" Click="btnAnyadirFila_Click"/>
+            </WrapPanel>
 
+
+        </StackPanel>
+        <StackPanel Grid.Column="1" Width="auto" Height="auto" Name="stackPanelDescripcion">
+            <ScrollViewer Grid.Column="1" HorizontalAlignment="Stretch" Width="auto" Height="719" Name="scrollViewerDescripcion" VerticalScrollBarVisibility="Auto">
+                <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" Name="stackPanel2">
+                    <Label Content="DESCRIPCIÓN" HorizontalAlignment="Center" FontWeight="Bold" Margin="10,10,0,0"/>
+                    <Grid Height="auto" Width="auto"  Margin="15,0,0,0" Name="gridDescripcion1"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Width="auto" Height="auto" Name="stackPanelCantidad">
+            <ScrollViewer Grid.Column="2" HorizontalAlignment="Stretch" Height="719" Name="scrollViewerCantidad" VerticalScrollBarVisibility="Auto">
+                <StackPanel Grid.Column="2" HorizontalAlignment="Stretch" Name="stackPanel3">
+                    <Label Content="Cantidad" HorizontalAlignment="Center" FontWeight="Bold" Margin="10,10,0,0"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Width="auto" Height="auto" Name="stackPanelPrecio">
+            <ScrollViewer Grid.Column="3" HorizontalAlignment="Stretch" Height="719" Name="scrollViewerPrecio" VerticalScrollBarVisibility="Auto">
+                <StackPanel Grid.Column="3" HorizontalAlignment="Stretch" Name="stackPanel4">
+                    <Label Content="Precio" HorizontalAlignment="Center" FontWeight="Bold" Margin="10,10,0,0"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Column="4" Width="auto" Height="auto" Name="stackPanelImporte">
+            <ScrollViewer Grid.Column="4" HorizontalAlignment="Stretch" Height="719" Name="scrollViewerImporte" VerticalScrollBarVisibility="Auto">
+                <StackPanel Grid.Column="4" HorizontalAlignment="Stretch" Name="stackPanel5">
+                    <Label Content="Importe" HorizontalAlignment="Center" FontWeight="Bold" Margin="10,10,0,0"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Column="5" HorizontalAlignment="Stretch">
+            <Label Content="SUBTOTAL" HorizontalAlignment="Center" FontWeight="Bold" Margin="40,10,0,20"/>
+            <TextBox TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="40,0,0,0" Name="txtSubtotal" Text="0" TextAlignment="Right"/>
+            <Label Content="I.V.A" HorizontalAlignment="Center" FontWeight="Bold" Margin="40,10,0,20"/>
+            <TextBox TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="40,0,0,0" Name="txtIva"  Text="21" TextAlignment="Right"/>
+            <Label Content="TOTAL I.V.A" HorizontalAlignment="Center" FontWeight="Bold" Margin="40,10,0,20"/>
+            <TextBox TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="40,0,0,0" Name="txtTotalIva"  Text="0" TextAlignment="Right"/>
+            <Label Content="TOTAL" HorizontalAlignment="Center" FontWeight="Bold" Margin="40,10,0,20"/>
+            <TextBox TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="40,0,0,0" Name="txtTotal"  Text="0" TextAlignment="Right"/>
+        </StackPanel>
     </Grid>
 </UserControl>

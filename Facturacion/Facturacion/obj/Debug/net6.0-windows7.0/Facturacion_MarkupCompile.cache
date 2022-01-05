@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\zumot\Desktop\Facturacion\Facturacion\App.xaml
-2-1189677774
+5-1073609959
 
-81178282000
-1951626824019
-MainWindow.xaml;Presentacion\AnyadirFactura.xaml;
+12831820526
+2101927797258
+MainWindow.xaml;Presentacion\AnyadirFactura.xaml;Presentacion\ConsultarFactura.xaml;Presentacion\ModificarFactura.xaml;Themes\Generic.xaml;
 
 False
 
